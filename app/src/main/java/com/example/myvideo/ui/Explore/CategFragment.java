@@ -28,10 +28,6 @@ public class CategFragment extends Fragment {
 
     FragmentCategBinding binding;
     BottomNavigationView nav;
-    ExploreViewModel viewModel;
-
-    CatsRecyclerAdapter adapter = new CatsRecyclerAdapter();
-    ArticlesRecyclerAdapter articlesRecyclerAdapter = new ArticlesRecyclerAdapter();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,9 +41,15 @@ public class CategFragment extends Fragment {
         binding = FragmentCategBinding.bind(view);
         nav = requireActivity().findViewById(R.id.nav);
         nav.setVisibility(View.VISIBLE);
-        viewModel = new ViewModelProvider(this).get(ExploreViewModel.class);
 
-        getCoursesCats();
+        if (SharedModel.getExplore_item() == "book"){
+            getBooksCats();
+        }
+        else{
+            getCoursesCats();
+        }
+
+
         onClicks();
 
     }
@@ -74,12 +76,6 @@ public class CategFragment extends Fragment {
             }
         });
 
-        binding.articles.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getArticles();
-            }
-        });
 
     }
 
@@ -92,25 +88,9 @@ public class CategFragment extends Fragment {
         binding.books.setTextColor(getResources().getColor(R.color.black));
         binding.articles.setTextColor(getResources().getColor(R.color.black));
         binding.Courses.setTextColor(getResources().getColor(R.color.white));
-        viewModel.getCourses_Cats();
 
-        viewModel.catslist.observe(getViewLifecycleOwner(), new Observer<ArrayList<String>>() {
-            @Override
-            public void onChanged(ArrayList<String> strings) {
-                adapter.setList(strings);
-                binding.recycler.setAdapter(adapter);
-
-                adapter.setOnItemClick(new CatsRecyclerAdapter.OnItemClick() {
-                    @Override
-                    public void OnClick(String category) {
-                        SharedModel.setExplore_item("course");
-                        SharedModel.setExplore_cat(category);
-                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new ExploreFragment() ,"e")
-                                .addToBackStack("e").commit();
-                    }
-                });
-            }
-        });
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame3 , new CoursesCatsFragment() ,"ccat")
+                .addToBackStack("ccat").commit();
     }
 
     private void getBooksCats(){
@@ -123,57 +103,10 @@ public class CategFragment extends Fragment {
         binding.articles.setTextColor(getResources().getColor(R.color.black));
         binding.Courses.setTextColor(getResources().getColor(R.color.black));
 
-        viewModel.getBooks_Cats();
-
-        viewModel.catslist.observe(getViewLifecycleOwner(), new Observer<ArrayList<String>>() {
-            @Override
-            public void onChanged(ArrayList<String> strings) {
-                adapter.setList(strings);
-                binding.recycler.setAdapter(adapter);
-
-                adapter.setOnItemClick(new CatsRecyclerAdapter.OnItemClick() {
-                    @Override
-                    public void OnClick(String category) {
-                        SharedModel.setExplore_item("book");
-                        SharedModel.setExplore_cat(category);
-                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new ExploreFragment() ,"e")
-                                .addToBackStack("e").commit();
-                    }
-                });
-
-            }
-        });
-    }
-
-    private void getArticles(){
-
-        binding.books.setBackgroundColor(getResources().getColor(R.color.white));
-        binding.Courses.setBackgroundColor(getResources().getColor(R.color.white));
-        binding.articles.setBackgroundColor(getResources().getColor(R.color.color1));
-
-        binding.books.setTextColor(getResources().getColor(R.color.black));
-        binding.articles.setTextColor(getResources().getColor(R.color.white));
-        binding.Courses.setTextColor(getResources().getColor(R.color.black));
-
-
-        viewModel.getArticles();
-        viewModel.articles.observe(getViewLifecycleOwner(), new Observer<ArrayList<ArticleModel>>() {
-            @Override
-            public void onChanged(ArrayList<ArticleModel> articleModels) {
-                articlesRecyclerAdapter.setList(articleModels);
-                binding.recycler.setAdapter(articlesRecyclerAdapter);
-
-                articlesRecyclerAdapter.setOnItemClick(new ArticlesRecyclerAdapter.OnItemClick() {
-                    @Override
-                    public void OnClick(ArticleModel article) {
-                        SharedModel.setSelected_article(article);
-                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new ArticleFragment(),"a")
-                                .addToBackStack("a").commit();
-                    }
-                });
-            }
-        });
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame3 , new BooksCatsFragment() ,"bcat")
+                .addToBackStack("bcat").commit();
 
 
     }
+
 }

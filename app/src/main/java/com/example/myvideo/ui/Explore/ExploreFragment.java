@@ -11,6 +11,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.example.myvideo.R;
 import com.example.myvideo.adapters.BooksRecyclerAdapter;
@@ -78,6 +79,12 @@ public class ExploreFragment extends Fragment {
 
 
     private void getBoooks(){
+
+       GridLayoutManager layout = (GridLayoutManager) binding.recycler.getLayoutManager();
+       layout.setSpanCount(2);
+
+       binding.recycler.setLayoutManager(layout);
+
         viewModel.getBooks();
         viewModel.Books.observe(getViewLifecycleOwner(), new Observer<ArrayList<BookModel>>() {
             @Override
