@@ -20,6 +20,7 @@ import com.example.myvideo.ui.Explore.Article.ArticleFragment;
 import com.example.myvideo.ui.Explore.Article.BlogFragment;
 import com.example.myvideo.ui.Explore.CategFragment;
 import com.example.myvideo.ui.Explore.ExploreFragment;
+import com.example.myvideo.ui.MyUniversity.MyUniversityFragment;
 import com.example.myvideo.ui.myHome.MyHomeFragment;
 import com.example.myvideo.ui.profile.Account.University_Settings.UniversitySettingsFragment;
 import com.example.myvideo.ui.profile.ProfileFragment;
@@ -85,7 +86,7 @@ public class HomeFragment extends Fragment {
         binding.bar.setVisibility(View.GONE);
         binding.nav.setVisibility(View.VISIBLE);
 
-        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new UniversitySettingsFragment()).commit();
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyUniversityFragment()).commit();
 
         binding.nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -94,7 +95,7 @@ public class HomeFragment extends Fragment {
                 switch (item.getItemId()){
 
                     case R.id.uni_nav:
-                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new UniversitySettingsFragment()).commit();
+                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyUniversityFragment()).commit();
                         return true;
 
                     case R.id.blog_nav:

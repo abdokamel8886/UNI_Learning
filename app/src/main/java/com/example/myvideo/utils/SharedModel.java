@@ -16,6 +16,7 @@ import com.example.myvideo.models.ArticleModel;
 import com.example.myvideo.models.BookModel;
 import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.models.ModelAuthCache;
+import com.example.myvideo.models.MyUniversityModel;
 import com.example.myvideo.models.UniversityModel;
 
 import java.util.List;
@@ -47,6 +48,16 @@ public class SharedModel {
 
     public static void setSelected_article(ArticleModel selected_article) {
         SharedModel.selected_article = selected_article;
+    }
+
+    private static MyUniversityModel myUniversity;
+
+    public static MyUniversityModel getMyUniversity() {
+        return myUniversity;
+    }
+
+    public static void setMyUniversity(MyUniversityModel myUniversity) {
+        SharedModel.myUniversity = myUniversity;
     }
 
     private static String explore_item;
