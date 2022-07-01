@@ -15,15 +15,20 @@
         <entry key="app/src/main/res/layout/fragment_article.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_blog.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_book.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_books_categ.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_books_cats.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_categ.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_course.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_courseinfo.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_courses_categ.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_courses_cats.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_my_books_base.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_my_courses_base.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_my_home.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_my_profile.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_my_university.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_reg.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_select_grade.xml" value="0.35625" />
@@ -31,6 +36,7 @@
         <entry key="app/src/main/res/layout/fragment_university_settings.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_article.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_book.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_book2.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_cat.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_video.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/slide_screen.xml" value="0.35625" />
