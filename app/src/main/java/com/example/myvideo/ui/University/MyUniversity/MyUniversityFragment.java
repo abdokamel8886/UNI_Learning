@@ -1,4 +1,4 @@
-package com.example.myvideo.ui.MyUniversity;
+package com.example.myvideo.ui.University.MyUniversity;
 
 import android.os.Bundle;
 
@@ -18,6 +18,7 @@ import com.example.myvideo.databinding.FragmentMyUniversityBinding;
 import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.CourseBaseViewerFragment;
 import com.example.myvideo.utils.SharedModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 public class MyUniversityFragment extends Fragment {
 
     FragmentMyUniversityBinding binding;
+    BottomNavigationView nav;
     MyUniversityViewModel viewModel;
     CoursesRecyclerAdapter adapter = new CoursesRecyclerAdapter();
 
@@ -39,7 +41,17 @@ public class MyUniversityFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentMyUniversityBinding.bind(view);
+        nav = requireActivity().findViewById(R.id.nav);
+        nav.setVisibility(View.GONE);
         viewModel = new ViewModelProvider(this).get(MyUniversityViewModel.class);
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().onBackPressed();
+            }
+        });
+
         getData();
 
     }

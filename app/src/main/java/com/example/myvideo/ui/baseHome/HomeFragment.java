@@ -16,13 +16,11 @@ import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentHomeBinding;
 import com.example.myvideo.models.ModelAuthCache;
 import com.example.myvideo.models.RegModel;
-import com.example.myvideo.ui.Explore.Article.ArticleFragment;
 import com.example.myvideo.ui.Explore.Article.BlogFragment;
 import com.example.myvideo.ui.Explore.CategFragment;
-import com.example.myvideo.ui.Explore.ExploreFragment;
-import com.example.myvideo.ui.MyUniversity.MyUniversityFragment;
+import com.example.myvideo.ui.University.MyUniversity.MyUniversityFragment;
+import com.example.myvideo.ui.University.base.UniversityBaseFragment;
 import com.example.myvideo.ui.myHome.MyHomeFragment;
-import com.example.myvideo.ui.profile.Account.University_Settings.UniversitySettingsFragment;
 import com.example.myvideo.ui.profile.ProfileFragment;
 import com.example.myvideo.utils.SharedModel;
 import com.google.android.material.navigation.NavigationBarView;
@@ -51,7 +49,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentHomeBinding.bind(view);
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        binding.nav.setSelectedItemId(R.id.uni_nav);
+        binding.nav.setSelectedItemId(R.id.home_nav);
         binding.nav.setVisibility(View.GONE);
         getData();
     }
@@ -86,7 +84,7 @@ public class HomeFragment extends Fragment {
         binding.bar.setVisibility(View.GONE);
         binding.nav.setVisibility(View.VISIBLE);
 
-        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyUniversityFragment()).commit();
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyHomeFragment()).commit();
 
         binding.nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -95,7 +93,7 @@ public class HomeFragment extends Fragment {
                 switch (item.getItemId()){
 
                     case R.id.uni_nav:
-                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyUniversityFragment()).commit();
+                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new UniversityBaseFragment()).commit();
                         return true;
 
                     case R.id.blog_nav:

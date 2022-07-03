@@ -14,6 +14,7 @@ import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentMyHomeBinding;
 import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.models.UniversityModel;
+import com.example.myvideo.ui.University.MyUniversity.MyUniversityFragment;
 import com.example.myvideo.ui.myHome.MyBooks.MyBooksBaseFragment;
 import com.example.myvideo.ui.myHome.MyCourses.MyCoursesBaseFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -72,6 +73,14 @@ public class MyHomeFragment extends Fragment {
             public void onClick(View view) {
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyCoursesBaseFragment(),"mycourses")
                         .addToBackStack("mycourses").commit();
+            }
+        });
+
+        binding.degreeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyUniversityFragment(),"myd")
+                        .addToBackStack("myd").commit();
             }
         });
 

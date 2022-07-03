@@ -15,12 +15,12 @@ import com.bumptech.glide.Glide;
 import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentProfileBinding;
 import com.example.myvideo.models.ModelAuthCache;
-import com.example.myvideo.ui.Explore.Article.ArticleFragment;
 import com.example.myvideo.ui.auth.login.LoginFragment;
-import com.example.myvideo.ui.profile.Account.University_Settings.UniversitySettingsFragment;
+import com.example.myvideo.ui.profile.Account.FacultyInfo.FacultyInfoFragment;
 import com.example.myvideo.ui.profile.Account.myprofile.MyProfileFragment;
 import com.example.myvideo.ui.profile.Account.securitysettings.SecurityFragment;
 import com.example.myvideo.utils.SharedModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -31,6 +31,7 @@ public class ProfileFragment extends Fragment {
 
     FragmentProfileBinding binding;
     ArrayList<ModelAuthCache> caches = new ArrayList<>();
+    BottomNavigationView nav;
 
 
     @Override
@@ -44,6 +45,8 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentProfileBinding.bind(view);
+        nav = requireActivity().findViewById(R.id.nav);
+        nav.setVisibility(View.VISIBLE);
 
         binding.username.setText(SharedModel.getUsername());
         binding.mail.setText(SharedModel.getMail());
@@ -83,7 +86,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new UniversitySettingsFragment(),"us")
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new FacultyInfoFragment(),"us")
                         .addToBackStack("us").commit();
 
             }

@@ -13,11 +13,13 @@ import com.bumptech.glide.Glide;
 import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentMyProfileBinding;
 import com.example.myvideo.utils.SharedModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MyProfileFragment extends Fragment {
 
     FragmentMyProfileBinding binding;
+    BottomNavigationView nav;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +32,8 @@ public class MyProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentMyProfileBinding.bind(view);
+        nav = requireActivity().findViewById(R.id.nav);
+        nav.setVisibility(View.GONE);
 
 
         binding.birthTxt.setText(SharedModel.getBirth());

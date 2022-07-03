@@ -1,6 +1,4 @@
-package com.example.myvideo.ui.MyUniversity;
-
-import android.util.Log;
+package com.example.myvideo.ui.University.MyUniversity;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;

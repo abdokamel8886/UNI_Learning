@@ -12,11 +12,13 @@ import androidx.fragment.app.Fragment;
 import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentSecurityBinding;
 import com.example.myvideo.utils.SharedModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class SecurityFragment extends Fragment {
 
     FragmentSecurityBinding binding;
+    BottomNavigationView nav;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,7 +30,8 @@ public class SecurityFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentSecurityBinding.bind(view);
-
+        nav = requireActivity().findViewById(R.id.nav);
+        nav.setVisibility(View.GONE);
         binding.mailEdit.setText(SharedModel.getMail());
     }
 
