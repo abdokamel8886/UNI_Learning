@@ -21,8 +21,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentRegBinding;
+import com.example.myvideo.models.MyUniversityModel;
 import com.example.myvideo.ui.baseHome.HomeFragment;
 import com.example.myvideo.utils.SharedModel;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
@@ -32,6 +35,8 @@ public class RegFragment extends Fragment {
     FragmentRegBinding binding;
     DatePickerDialog.OnDateSetListener setListener;
     RegViewModel regViewModel;
+    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+
     Uri uri;
 
     int flag =0;
@@ -148,6 +153,7 @@ public class RegFragment extends Fragment {
         regViewModel.loged.observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
+                ref.child("MyUniversity").child(SharedModel.getId()).setValue(new MyUniversityModel(3,2,1));
                 flag =1;
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
@@ -182,7 +188,6 @@ public class RegFragment extends Fragment {
         if (requestCode == 1){
             uri = data.getData();
             binding.imageEdit.setText(SharedModel.getPathFromUri(getContext(),uri));
-
 
         }
 
