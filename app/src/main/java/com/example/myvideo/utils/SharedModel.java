@@ -84,6 +84,36 @@ public class SharedModel {
 
     private static UniversityModel selected_university;
 
+    private static UniversityModel.Grades selected_Grade;
+
+    private static UniversityModel.Grades.Departments selected_department;
+
+    private static UniversityModel.Grades.Departments.Terms selected_term;
+
+    public static UniversityModel.Grades.Departments.Terms getSelected_term() {
+        return selected_term;
+    }
+
+    public static void setSelected_term(UniversityModel.Grades.Departments.Terms selected_term) {
+        SharedModel.selected_term = selected_term;
+    }
+
+    public static UniversityModel.Grades.Departments getSelected_department() {
+        return selected_department;
+    }
+
+    public static void setSelected_department(UniversityModel.Grades.Departments selected_department) {
+        SharedModel.selected_department = selected_department;
+    }
+
+    public static UniversityModel.Grades getSelected_Grade() {
+        return selected_Grade;
+    }
+
+    public static void setSelected_Grade(UniversityModel.Grades selected_Grade) {
+        SharedModel.selected_Grade = selected_Grade;
+    }
+
     public static UniversityModel getSelected_university() {
         return selected_university;
     }

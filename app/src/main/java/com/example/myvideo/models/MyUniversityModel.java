@@ -9,8 +9,8 @@ public class MyUniversityModel {
     public MyUniversityModel() {
     }
 
-    public MyUniversityModel(Integer grade, Integer department, Integer term) {
-        Grade = grade;
+    public MyUniversityModel(Integer Grade, Integer department, Integer term) {
+        this.Grade = Grade;
         this.department = department;
         this.term = term;
     }

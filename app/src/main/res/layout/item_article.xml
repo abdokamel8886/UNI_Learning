@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180sp"
                 android:layout_margin="10sp"
-                app:cardBackgroundColor="@color/color22"
+                app:cardBackgroundColor="@color/white"
                 android:src="@drawable/courses"
                 android:scaleType="fitXY"
                 app:cardCornerRadius="15sp"

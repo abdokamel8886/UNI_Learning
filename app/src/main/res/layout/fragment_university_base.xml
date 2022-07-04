@@ -78,7 +78,7 @@
                 android:layout_margin="20sp"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="My Degrees"
+                android:text="My Degree"
                 android:textColor="@color/white"
                 />
 

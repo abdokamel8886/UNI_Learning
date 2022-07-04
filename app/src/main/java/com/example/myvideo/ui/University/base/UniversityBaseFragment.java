@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentUniversityBaseBinding;
+import com.example.myvideo.ui.University.AllDegree.AllDegreesFragment;
 import com.example.myvideo.ui.University.MyUniversity.MyUniversityFragment;
 import com.example.myvideo.ui.myHome.MyBooks.MyBooksBaseFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -49,6 +50,13 @@ public class UniversityBaseFragment extends Fragment {
             public void onClick(View view) {
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new MyUniversityFragment(),"muu")
                         .addToBackStack("muu").commit();
+            }
+        });
+        binding.AllBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new AllDegreesFragment(),"au")
+                        .addToBackStack("au").commit();
             }
         });
     }
