@@ -15,11 +15,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50sp"
-        android:text="Blog"
+        android:text="Articles"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="20sp"/>
-
+    <ImageView
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/adjust"
+        android:id="@+id/adjust"
+        android:background="@color/background4"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20sp"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
@@ -30,6 +39,16 @@
         android:layout_marginTop="30sp"
         android:layout_marginBottom="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:text="Add Post"
+        android:layout_margin="20sp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

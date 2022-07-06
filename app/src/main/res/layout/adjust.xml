@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10sp"
+    android:background="@drawable/sheet_background"
+    >
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20sp"
+        android:text="Blog Categories"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/articles_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:text="Articles"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/txt"
+        android:outlineSpotShadowColor="@color/white"
+        android:outlineAmbientShadowColor="@color/white"
+        android:backgroundTint="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/posts_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:text="Posts"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/articles_btn"
+        android:outlineSpotShadowColor="@color/white"
+        android:outlineAmbientShadowColor="@color/white"
+        android:backgroundTint="@color/white" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/news_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:text="News"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/posts_btn"
+        android:outlineSpotShadowColor="@color/white"
+        android:outlineAmbientShadowColor="@color/white"
+        android:backgroundTint="@color/white" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/events_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:text="Events"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/news_btn"
+        android:outlineSpotShadowColor="@color/white"
+        android:outlineAmbientShadowColor="@color/white"
+        android:backgroundTint="@color/white" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

@@ -1,6 +1,8 @@
 package com.example.myvideo.adapters;
 
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +58,14 @@ public class ArticlesRecyclerAdapter extends RecyclerView.Adapter<ArticlesRecycl
                 .load(list.get(position).getImage())
                .into(holder.img);
 
+       holder.add.setOnClickListener(new View.OnClickListener() {
+           @SuppressLint("ResourceType")
+           @Override
+           public void onClick(View view) {
+               holder.add.setColorFilter(Color.RED);
+           }
+       });
+
 
     }
 
@@ -68,7 +78,7 @@ public class ArticlesRecyclerAdapter extends RecyclerView.Adapter<ArticlesRecycl
     class Holder extends RecyclerView.ViewHolder{
 
         TextView title , date , des;
-        ImageView img;
+        ImageView img , add;
 
 
 
@@ -77,7 +87,7 @@ public class ArticlesRecyclerAdapter extends RecyclerView.Adapter<ArticlesRecycl
             title = itemView.findViewById(R.id.name_txt);
             date = itemView.findViewById(R.id.date_txt);
             des = itemView.findViewById(R.id.over_txt);
-
+            add = itemView.findViewById(R.id.add);
             img = itemView.findViewById(R.id.img);
 
             itemView.setOnClickListener(new View.OnClickListener() {

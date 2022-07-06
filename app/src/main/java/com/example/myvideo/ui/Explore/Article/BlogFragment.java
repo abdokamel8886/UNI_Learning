@@ -11,15 +11,23 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myvideo.R;
 import com.example.myvideo.adapters.ArticlesRecyclerAdapter;
 import com.example.myvideo.adapters.CatsRecyclerAdapter;
+import com.example.myvideo.adapters.PostsRecyclerAdapter;
 import com.example.myvideo.databinding.FragmentBlogBinding;
 import com.example.myvideo.models.ArticleModel;
+import com.example.myvideo.models.PostModel;
 import com.example.myvideo.ui.Explore.ExploreViewModel;
 import com.example.myvideo.utils.SharedModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 
@@ -31,6 +39,11 @@ public class BlogFragment extends Fragment {
     BottomNavigationView nav;
     ExploreViewModel viewModel;
     ArticlesRecyclerAdapter articlesRecyclerAdapter = new ArticlesRecyclerAdapter();
+    PostsRecyclerAdapter postsRecyclerAdapter = new PostsRecyclerAdapter();
+
+
+    Button articles , news , posts , events;
+    BottomSheetDialog bottomSheetDialog;
 
 
 
@@ -48,6 +61,7 @@ public class BlogFragment extends Fragment {
         nav.setVisibility(View.VISIBLE);
         viewModel = new ViewModelProvider(this).get(ExploreViewModel.class);
         getArticles();
+        onClicks();
     }
 
     @Override
@@ -56,8 +70,56 @@ public class BlogFragment extends Fragment {
         binding = null;
     }
 
-    private void getArticles(){
+    private void onClicks(){
 
+        binding.add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "add post clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.adjust.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showdialog();
+            }
+        });
+    }
+
+    private void showdialog(){
+        bottomSheetDialog = new BottomSheetDialog(getContext() , R.style.BottomSheetTheme);
+        bottomSheetDialog.setContentView(R.layout.adjust);
+        bottomSheetDialog.setCanceledOnTouchOutside(true);
+        bottomSheetDialog.show();
+
+        articles = bottomSheetDialog.findViewById(R.id.articles_btn);
+        news = bottomSheetDialog.findViewById(R.id.news_btn);
+        events = bottomSheetDialog.findViewById(R.id.events_btn);
+        posts = bottomSheetDialog.findViewById(R.id.posts_btn);
+
+        articles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getArticles();
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        posts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getPosts();
+                bottomSheetDialog.dismiss();
+
+            }
+        });
+
+    }
+
+    private void getArticles(){
+        binding.txt.setText("Articles");
+        binding.add.setVisibility(View.GONE);
         viewModel.getArticles();
         viewModel.articles.observe(getViewLifecycleOwner(), new Observer<ArrayList<ArticleModel>>() {
             @Override
@@ -76,6 +138,21 @@ public class BlogFragment extends Fragment {
             }
         });
 
+
+    }
+
+    private void getPosts(){
+        binding.txt.setText("Posts");
+        binding.add.setVisibility(View.VISIBLE);
+        viewModel.getPosts();
+
+        viewModel.posts.observe(getViewLifecycleOwner(), new Observer<ArrayList<PostModel>>() {
+            @Override
+            public void onChanged(ArrayList<PostModel> postModels) {
+                postsRecyclerAdapter.setList(postModels);
+                binding.recycler.setAdapter(postsRecyclerAdapter);
+            }
+        });
 
     }
 }

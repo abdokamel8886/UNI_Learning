@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.myvideo.models.ArticleModel;
 import com.example.myvideo.models.BookModel;
 import com.example.myvideo.models.CourseModel;
+import com.example.myvideo.models.PostModel;
 import com.example.myvideo.utils.SharedModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +38,9 @@ public class ExploreViewModel extends ViewModel {
 
     public MutableLiveData<ArrayList<ArticleModel>> articles = new MutableLiveData<>();
     ArrayList<ArticleModel> articlesmodels = new ArrayList<>();
+
+    public MutableLiveData<ArrayList<PostModel>> posts = new MutableLiveData<>();
+    ArrayList<PostModel> postModels = new ArrayList<>();
 
 
 
@@ -163,6 +167,31 @@ public class ExploreViewModel extends ViewModel {
                 }
 
                 articles.setValue(articlesmodels);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    public void getPosts(){
+        postModels.clear();
+        ref2.child("Posts").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                postModels.clear();
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+
+
+                    postModels.add(snapshot1.getValue(PostModel.class));
+
+                }
+
+                posts.setValue(postModels);
 
             }
 
