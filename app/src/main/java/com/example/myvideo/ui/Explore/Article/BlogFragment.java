@@ -62,7 +62,7 @@ public class BlogFragment extends Fragment {
         nav = requireActivity().findViewById(R.id.nav);
         nav.setVisibility(View.VISIBLE);
         viewModel = new ViewModelProvider(this).get(ExploreViewModel.class);
-        getArticles();
+        getPosts();
         onClicks();
     }
 

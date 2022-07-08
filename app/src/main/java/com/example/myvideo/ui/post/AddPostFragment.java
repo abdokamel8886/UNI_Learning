@@ -102,7 +102,16 @@ public class AddPostFragment extends Fragment {
             Sendwithout(newPost);
         }
         else {
-            Toast.makeText(getContext(), "tttt", Toast.LENGTH_SHORT).show();
+            binding.bar.setVisibility(View.VISIBLE);
+            viewModel.uploadFile(uri , newPost);
+            viewModel.success.observe(getViewLifecycleOwner(), new Observer<String>() {
+                @Override
+                public void onChanged(String s) {
+                    binding.bar.setVisibility(View.GONE);
+                    Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+                    requireActivity().onBackPressed();
+                }
+            });
         }
     }
 
@@ -134,4 +143,5 @@ public class AddPostFragment extends Fragment {
             }
         });
     }
+
 }
