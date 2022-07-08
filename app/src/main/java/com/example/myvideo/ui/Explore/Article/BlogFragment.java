@@ -25,6 +25,8 @@ import com.example.myvideo.databinding.FragmentBlogBinding;
 import com.example.myvideo.models.ArticleModel;
 import com.example.myvideo.models.PostModel;
 import com.example.myvideo.ui.Explore.ExploreViewModel;
+import com.example.myvideo.ui.post.AddPostFragment;
+import com.example.myvideo.ui.post.PostFragment;
 import com.example.myvideo.utils.SharedModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -75,7 +77,8 @@ public class BlogFragment extends Fragment {
         binding.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "add post clicked", Toast.LENGTH_SHORT).show();
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new AddPostFragment(),"a")
+                        .addToBackStack("a").commit();
             }
         });
 
@@ -151,6 +154,15 @@ public class BlogFragment extends Fragment {
             public void onChanged(ArrayList<PostModel> postModels) {
                 postsRecyclerAdapter.setList(postModels);
                 binding.recycler.setAdapter(postsRecyclerAdapter);
+
+                postsRecyclerAdapter.setOnItemClick(new PostsRecyclerAdapter.OnItemClick() {
+                    @Override
+                    public void OnClick(PostModel post) {
+                        SharedModel.setSelected_post(post);
+                        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new PostFragment(),"p")
+                                .addToBackStack("p").commit();
+                    }
+                });
             }
         });
 

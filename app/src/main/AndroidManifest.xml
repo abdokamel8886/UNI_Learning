@@ -2,6 +2,7 @@
 
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myvideo">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,13 +19,14 @@
 
 
     <application
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:name=".App"
         android:icon="@mipmap/ic_icon"
         android:label="Uni Learning"
         android:roundIcon="@mipmap/ic_icon_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyVideo">
+        android:theme="@style/Theme.MyVideo"
+        tools:replace="android:allowBackup">
 
 
         <activity

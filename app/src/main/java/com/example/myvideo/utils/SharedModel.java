@@ -17,6 +17,7 @@ import com.example.myvideo.models.BookModel;
 import com.example.myvideo.models.CourseModel;
 import com.example.myvideo.models.ModelAuthCache;
 import com.example.myvideo.models.MyUniversityModel;
+import com.example.myvideo.models.PostModel;
 import com.example.myvideo.models.UniversityModel;
 
 import java.util.List;
@@ -89,6 +90,16 @@ public class SharedModel {
     private static UniversityModel.Grades.Departments selected_department;
 
     private static UniversityModel.Grades.Departments.Terms selected_term;
+
+    private static PostModel selected_post;
+
+    public static PostModel getSelected_post() {
+        return selected_post;
+    }
+
+    public static void setSelected_post(PostModel selected_post) {
+        SharedModel.selected_post = selected_post;
+    }
 
     public static UniversityModel.Grades.Departments.Terms getSelected_term() {
         return selected_term;

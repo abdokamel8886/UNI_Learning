@@ -4,6 +4,7 @@ public class PostModel {
 
 
     private String date;
+    private String id;
     private String img;
     private String photo;
     private String post;
@@ -18,6 +19,14 @@ public class PostModel {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getImg() {
