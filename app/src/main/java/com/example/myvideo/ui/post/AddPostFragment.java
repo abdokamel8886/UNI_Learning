@@ -20,6 +20,7 @@ import com.example.myvideo.R;
 import com.example.myvideo.databinding.FragmentAddPostBinding;
 import com.example.myvideo.models.PostModel;
 import com.example.myvideo.utils.SharedModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class AddPostFragment extends Fragment {
@@ -27,7 +28,7 @@ public class AddPostFragment extends Fragment {
     FragmentAddPostBinding binding;
     PostViewModel viewModel;
     Uri uri;
-
+    BottomNavigationView nav;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +41,9 @@ public class AddPostFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentAddPostBinding.bind(view);
         viewModel = new ViewModelProvider(this).get(PostViewModel.class);
+
+        nav = requireActivity().findViewById(R.id.nav);
+        nav.setVisibility(View.GONE);
 
         load();
     }

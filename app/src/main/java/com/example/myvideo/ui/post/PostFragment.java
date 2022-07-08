@@ -19,6 +19,7 @@ import com.example.myvideo.adapters.CommentsRecyclerAdapter;
 import com.example.myvideo.databinding.FragmentPostBinding;
 import com.example.myvideo.models.CommentModel;
 import com.example.myvideo.utils.SharedModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.core.utilities.Validation;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class PostFragment extends Fragment {
     FragmentPostBinding binding;
     PostViewModel viewModel;
     CommentsRecyclerAdapter adapter = new CommentsRecyclerAdapter();
+    BottomNavigationView nav;
 
 
     @Override
@@ -42,6 +44,9 @@ public class PostFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentPostBinding.bind(view);
         viewModel = new ViewModelProvider(this).get(PostViewModel.class);
+
+        nav = requireActivity().findViewById(R.id.nav);
+        nav.setVisibility(View.GONE);
         load();
     }
 
