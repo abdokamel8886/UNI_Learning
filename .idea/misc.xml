@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/chat1_bub.xml" value="0.279" />
         <entry key="app/src/main/res/drawable/edittext2.xml" value="0.2805" />
         <entry key="app/src/main/res/drawable/gradient.xml" value="0.254" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.1735" />
@@ -25,6 +26,7 @@
         <entry key="app/src/main/res/layout/fragment_books_categ.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_books_cats.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_categ.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_course.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_courseinfo.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_courses_categ.xml" value="0.35625" />
@@ -52,6 +54,8 @@
         <entry key="app/src/main/res/layout/item_book.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_book2.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_cat.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_chat_me.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_chat_other.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_comment.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_dgree.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.35625" />

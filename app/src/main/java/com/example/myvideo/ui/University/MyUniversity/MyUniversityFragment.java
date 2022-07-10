@@ -16,6 +16,7 @@ import com.example.myvideo.R;
 import com.example.myvideo.adapters.CoursesRecyclerAdapter;
 import com.example.myvideo.databinding.FragmentMyUniversityBinding;
 import com.example.myvideo.models.CourseModel;
+import com.example.myvideo.ui.chat.ChatFragment;
 import com.example.myvideo.ui.myHome.MyCourses.Courseviewer.CourseBaseViewerFragment;
 import com.example.myvideo.utils.SharedModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -77,6 +78,14 @@ public class MyUniversityFragment extends Fragment {
                         requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new CourseBaseViewerFragment(),"bc").addToBackStack("bc").commit();
                     }
                 });
+
+            }
+        });
+
+        binding.chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home_frame , new ChatFragment(),"bc").addToBackStack("bc").commit();
 
             }
         });

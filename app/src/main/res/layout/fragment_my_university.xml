@@ -18,6 +18,15 @@
         android:layout_marginStart="20sp"
         android:layout_marginTop="30sp"/>
 
+    <ImageView
+        android:id="@+id/chat"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:src="@drawable/ic_baseline_chat_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/back"
+        android:layout_marginEnd="20sp"/>
+
     <TextView
         android:id="@+id/txt"
         android:layout_width="wrap_content"
