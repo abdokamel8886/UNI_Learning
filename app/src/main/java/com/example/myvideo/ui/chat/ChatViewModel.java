@@ -27,7 +27,7 @@ public class ChatViewModel extends ViewModel {
 
 
     public void SendMessage(ModelChat model){
-        ref.child("Chats").child("Year "+SharedModel.getMyUniversity().getGrade()).push().setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+        ref.child("Chats").child("Year "+SharedModel.getMyUniversity().getGrade()+" : "+SharedModel.getMyUniversity().getDepartment()).push().setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 success.setValue("success");
@@ -42,7 +42,7 @@ public class ChatViewModel extends ViewModel {
     public void getMassages (){
 
 
-        ref.child("Chats").child("Year "+SharedModel.getMyUniversity().getGrade()).addValueEventListener(new ValueEventListener() {
+        ref.child("Chats").child("Year "+SharedModel.getMyUniversity().getGrade()+" : "+SharedModel.getMyUniversity().getDepartment()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 msgs.clear();

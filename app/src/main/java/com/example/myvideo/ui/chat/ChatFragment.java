@@ -50,7 +50,7 @@ public class ChatFragment extends Fragment {
     }
 
     private void getData(){
-        binding.txt.setText("Year "+SharedModel.getMyUniversity().getGrade());
+        binding.txt.setText("Year "+SharedModel.getMyUniversity().getGrade()+" : "+SharedModel.getMyUniversity().getDepartment());
         viewModel.getMassages();
         viewModel.list.observe(getViewLifecycleOwner(), new Observer<ArrayList<ModelChat>>() {
             @Override
